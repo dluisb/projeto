@@ -4,7 +4,7 @@ pipeline {
        stage('SonarQube') {
             steps {
                 sh 'mvn sonar:sonar'
-                sh 'SonarQuebe realizado'
+                sh 'echo SonarQube realizado'
             }
         }
        stage('Build') {
