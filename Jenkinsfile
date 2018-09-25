@@ -2,6 +2,12 @@ pipeline {
    agent any
    stages {
        stage('Build') {
+          stage('SonarQube') {
+            steps {
+                sh 'mvn sonar:sonar'
+                sh 'echo SonarQube realizado'
+            }
+        }
             steps {
                 sh 'mvn clean package'
                 sh 'echo clean package realizado'
@@ -15,6 +21,8 @@ pipeline {
         }
        stage('subindo container') {
          steps {
+             sh 'docker stop teste2'
+             sh 'docker rm teste2'
              sh 'docker run -d --name teste2 -p 83:8080 projetodluisb'
          }
         }
