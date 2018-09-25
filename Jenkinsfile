@@ -19,7 +19,7 @@ pipeline {
                 sh 'echo build realizado'
             }
         }
-       stage('subir container') {
+       stage('subindo container') {
          steps {
              sh 'docker stop teste2'
              sh 'docker rm teste2'
