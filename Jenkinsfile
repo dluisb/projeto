@@ -1,6 +1,13 @@
 pipeline {
    agent any
    stages {
+      stage ('Teste variavel') {
+         steps {
+            sh 'echo $JAVA_HOME'
+            sh 'echo $M2_HOME'
+         }
+      }
+      
        stage('Build') {
             steps {
                 sh 'mvn clean package'
