@@ -1,13 +1,13 @@
 pipeline {
    agent any
    stages {
-       stage('Build') {
-          stage('SonarQube') {
+      stage('SonarQube') {
             steps {
                 sh 'mvn sonar:sonar'
                 sh 'echo SonarQube realizado'
             }
         }
+       stage('Build') {
             steps {
                 sh 'mvn clean package'
                 sh 'echo clean package realizado'
