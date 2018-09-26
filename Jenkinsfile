@@ -22,10 +22,11 @@ pipeline {
        stage('subindo container') {
          steps {
                script{
-                 if(teste2 == true){
+                  try{
+                   sh 'docker run -d --name teste2 -p 83:8080 projetodluisb'                   
+                 } catch(exc) {
                    sh 'docker stop teste2'
                    sh 'docker rm teste2'
-                 }else{
                    sh 'docker run -d --name teste2 -p 83:8080 projetodluisb'
                  }
             }   
