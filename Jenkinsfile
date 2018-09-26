@@ -21,13 +21,15 @@ pipeline {
         }
        stage('subindo container') {
          steps {
-           if(teste2 == true){
-             sh 'docker stop teste2'
-             sh 'docker rm teste2'
-           }else{
-             sh 'docker run -d --name teste2 -p 83:8080 projetodluisb'
-           }
-         }
+               script{
+                 if(teste2 == true){
+                   sh 'docker stop teste2'
+                   sh 'docker rm teste2'
+                 }else{
+                   sh 'docker run -d --name teste2 -p 83:8080 projetodluisb'
+                 }
+            }   
+          }
         }
         stage ('subindo para o dockerhub') {
             steps {
