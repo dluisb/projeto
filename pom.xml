@@ -24,7 +24,20 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-
+	
+	<distributionManagement>
+		  <repository>
+		    <id>nexus-releases</id>
+		    <name>nexus-releases</name>
+		    <url>http://172.20.148.199:8081/repository/SAMPLE-REL/</url>
+		  </repository>
+	<snapshotRepository>
+		  <id>nexus-snapshots</id>
+		  <name>nexus-snapshots</name>
+		  <url>http://172.20.148.199:8081/repository/SAMPLE_SNAP/</url>
+		  </snapshotRepository>
+	</distributionManagement>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
