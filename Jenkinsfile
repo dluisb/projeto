@@ -32,6 +32,11 @@ pipeline {
             }   
           }
         }
+      stage ('Artefato Nexus'){
+         steps {
+               nexusArtifactUploader artifacts: [[artifactId: 'jenkins-war', classifier: '', file: 'war/target/jenkins.war', type: 'war']], credentialsId: '3ec09dad-64e7-4856-b9a4-c1ac0199201b', groupId: 'local', nexusUrl: '127.0.0.1/nexus', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.00'
+            }      
+         }      
         stage ('subindo para o dockerhub') {
             steps {
                withCredentials([string(credentialsId: 'nome', variable: 'USUARIO'), string(credentialsId: 'senha', variable: 'SENHA') ]) {
