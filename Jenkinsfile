@@ -27,12 +27,6 @@ pipeline {
                  }
             }   
           }
-        }
-        stage ('Artefato Nexus'){
-         steps {
-                nexusPublisher nexusInstanceId: 'local', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/xyz/target/Proxy_Default-0.0.3.jar']], mavenCoordinate: [artifactId: 'Proxy_Default', groupId: 'com.indra.desafio', packaging: 'jar', version: '0.0.3']]]
-            }      
-         }   
-         
+        }        
     }
 }
